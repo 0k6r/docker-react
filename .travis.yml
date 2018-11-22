@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t oku6er/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run oku6er/docker-react npm run test -- --coverage
